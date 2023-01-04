@@ -1,5 +1,4 @@
-Each input files should have 'x' coordinates in one column, and 'y' coordinates in the second column. The file names should be "config1.csv" for initial
-configuration, and "config2.csv" for final configuration.
+Code to calculate delta total adsorbate-adsorbate interactions need two input files. Each input files should have 'x' coordinates in one column, and 'y' coordinates in the second column. The file names should be "config1.csv" for initial configuration, and "config2.csv" for final configuration. (see the example files with respective name provided hereby)
 
 Total interaction counting code reads the file "config1.csv", and spits out the coefficients a,b,c,d,... of nearest-neighbor interaction parmeters y1,y2,y3,y4 (for (100))and y1,y2,y3,y4,y5,y6 (for (111)) and likewise second-nearest-neighbor interaction parameters (y11,...,y44 for (100), and y11, ...,y66 for (111))in the equation of calculating total adsorbate-adsorbate interactions as discussed in <ENTER DOI OF THE PAPER>.
 
