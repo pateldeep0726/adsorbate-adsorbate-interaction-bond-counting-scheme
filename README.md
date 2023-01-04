@@ -3,7 +3,7 @@ configuration, and "config2.csv" for final configuration.
 
 Total interaction counting code reads the file "config1.csv", and spits out the coefficients a,b,c,d,... of nearest-neighbor interaction parmeters y1,y2,y3,y4 (for (100))and y1,y2,y3,y4,y5,y6 (for (111)) and likewise second-nearest-neighbor interaction parameters (y11,...,y44 for (100), and y11, ...,y66 for (111))in the equation of calculating total adsorbate-adsorbate interactions as discussed in <ENTER DOI OF THE PAPER>.
 
-Similarly, delta Total interaction countring code reads file "config1.csv" and "config2.csv", and spits out the coefficients of respective interaction parameters involved in calculation difference in the total adsorbate-adsorbate interaction energies between config.2 minus config1.
+Similarly, delta Total interaction countring code reads file "config1.csv" and "config2.csv", and spits out the coefficients of respective interaction parameters involved in calculation difference in the total adsorbate-adsorbate interaction energies between config.2 and config1, i.e., total ads-ads in config2 minus total ads-ads in confi1.
 
 For example, for configurations of adsorbate on a (111) surface, if the output of either of the codes is: [1,1,0,0,3,1]
                                                                                                           [1,1,2,1,0,0]
