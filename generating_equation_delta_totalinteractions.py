@@ -753,8 +753,8 @@ elif cryst == "100":
 		a4 = a4 + a_final22[i][3]
 	a_final22 = [a1,a2,a3,a4]
 
-print(a_final1)
-print(a_final2)
+#print(a_final1)
+#print(a_final2)
 array1 = np.array(a_final1)
 array2 = np.array(a_final2)
 array11 = np.array(a_final11)
@@ -764,5 +764,5 @@ subtracted_arraynn = np.subtract(array2,array1)
 subtracted_arraysecnn = np.subtract(array22,array11)
 subtracted_nn = list(subtracted_arraynn)
 subtracted_secnn = list(subtracted_arraysecnn)
-print(subtracted_nn)
-print(subtracted_secnn)
+print(subtracted_nn) ##Coefficients of nearest neighbor parameters##
+print(subtracted_secnn) ##Coefficients of second nearest neighbor parameters##
