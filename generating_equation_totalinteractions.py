@@ -117,7 +117,7 @@ if cryst == "111":
 		a4 = a4 + a_final[i][3]
 		a5 = a5 + a_final[i][4]
 		a6 = a6 + a_final[i][5]
-
+	##Coefficients of nearest neighbor parameters##
 	print("a1 =",a1)
 	print("a2 =",a2)
 	print("a3 =",a3)
@@ -209,7 +209,7 @@ if cryst == "111":
 		a4 = a4 + a_final[i][3]
 		a5 = a5 + a_final[i][4]
 		a6 = a6 + a_final[i][5]
-
+	##Coefficients of second nearest neighbor parameters##
 	print("a11 =",a1)
 	print("a22 =",a2)
 	print("a33 =",a3)
