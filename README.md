@@ -7,3 +7,5 @@ For example, for configurations of adsorbate on a (111) surface, if the output o
 It means that the equation to calculate ads-ads interactions (total or delta total, depending on which code you use) is: 1*y1 + 1*y2 + 0*y3 + 0*y4 + 3*y5 + 1*y6 + 1*y11 + 1*y22 + 2*y33 + 1*y44 + 0*y55 + 0*y66
 
 The values of all the interaction parameters may be derived or can be directly extracted from literature, as shown in DOI.
+
+"cluster_expansion_noo_schneider_et_al" reads "conf1.csv" file, described in the first paragraph, and gives number of following clusters: 1NN, 2NN, ..., 5NN, 1-1-1, 1-1-2, and 1-1-3 in "conf1.csv" input file, which can then be used for predicting effective interaction parameters for each cluster through least-squared-regression against DFT-predicted energy, as suggested by Schneider et al.: https://doi.org/10.1039/C4CY00763H.
