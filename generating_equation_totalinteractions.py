@@ -13,8 +13,10 @@ def search(list, platform):
             return True
     return False
 
-lattconst = float(input("Enter the value of Scaling constant (lattice_constant/1.414):"))
-cryst = input("Enter the crystal type (100 or 111): ")
+#lattconst = float(input("Enter the value of Scaling constant (lattice_constant/1.414):"))
+lattconst = 2.95217081000000
+#cryst = input("Enter the crystal type (100 or 111): ")
+cryst = "100"
 
 if cryst == "111":
 	coord = pd.read_csv("/mnt/c/users/dmpatel/OneDrive - Iowa State University/desktop/research_data/General Script/Fermi_Development/config1.csv", sep = '  ', usecols = [0,1], names = ["x", "y"])
@@ -117,7 +119,7 @@ if cryst == "111":
 		a4 = a4 + a_final[i][3]
 		a5 = a5 + a_final[i][4]
 		a6 = a6 + a_final[i][5]
-	##Coefficients of nearest neighbor parameters##
+
 	print("a1 =",a1)
 	print("a2 =",a2)
 	print("a3 =",a3)
@@ -209,7 +211,7 @@ if cryst == "111":
 		a4 = a4 + a_final[i][3]
 		a5 = a5 + a_final[i][4]
 		a6 = a6 + a_final[i][5]
-	##Coefficients of second nearest neighbor parameters##
+
 	print("a11 =",a1)
 	print("a22 =",a2)
 	print("a33 =",a3)
@@ -340,7 +342,7 @@ elif cryst == "100":
 		nn = 0
 		a = [0]*4
 		for j in range(0,9*n-8,9):										
-			if lattconst+0.008 < round(((coord[i][0]-coord[j][0])**2 + (coord[i][1]-coord[j][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+1][0])**2 + (coord[i][1]-coord[j+1][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+2][0])**2 + (coord[i][1]-coord[j+2][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+3][0])**2 + (coord[i][1]-coord[j+3][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+4][0])**2 + (coord[i][1]-coord[j+4][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+5][0])**2 + (coord[i][1]-coord[j+5][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+6][0])**2 + (coord[i][1]-coord[j+6][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+7][0])**2 + (coord[i][1]-coord[j+7][1])**2)**0.5,3) <= 1.45*lattconst or lattconst+0.008 < round(((coord[i][0]-coord[j+8][0])**2 + (coord[i][1]-coord[j+8][1])**2)**0.5,3) <= 1.45*lattconst:		##The cut-off will change for each new metal##
+			if lattconst+0.008 < round(((coord[i][0]-coord[j][0])**2 + (coord[i][1]-coord[j][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+1][0])**2 + (coord[i][1]-coord[j+1][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+2][0])**2 + (coord[i][1]-coord[j+2][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+3][0])**2 + (coord[i][1]-coord[j+3][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+4][0])**2 + (coord[i][1]-coord[j+4][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+5][0])**2 + (coord[i][1]-coord[j+5][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+6][0])**2 + (coord[i][1]-coord[j+6][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+7][0])**2 + (coord[i][1]-coord[j+7][1])**2)**0.5,3) <= 1.45*lattconst+0.008 or lattconst+0.008 < round(((coord[i][0]-coord[j+8][0])**2 + (coord[i][1]-coord[j+8][1])**2)**0.5,3) <= 1.45*lattconst+0.008:		##The cut-off will change for each new metal##
 				if search(coord_count,coord[j]):					##If you found the already counted NN, then empty the first element##
 					#print(nn,f)
 					if nn != 0 and nn != f:

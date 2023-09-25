@@ -419,7 +419,7 @@ if cryst == "111":
 		f = 0
 		nn = 0
 		a = [0]*6
-		for j in range(0,9*n-8,9):										
+		for j in range(0,9*n-8,9):									
 			if 0 < round(((coord[i][0]-coord[j][0])**2 + (coord[i][1]-coord[j][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+1][0])**2 + (coord[i][1]-coord[j+1][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+2][0])**2 + (coord[i][1]-coord[j+2][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+3][0])**2 + (coord[i][1]-coord[j+3][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+4][0])**2 + (coord[i][1]-coord[j+4][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+5][0])**2 + (coord[i][1]-coord[j+5][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+6][0])**2 + (coord[i][1]-coord[j+6][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+7][0])**2 + (coord[i][1]-coord[j+7][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+8][0])**2 + (coord[i][1]-coord[j+8][1])**2)**0.5,3) <= lattconst+0.008:		##The cut-off will change for each new metal##
 				if search(coord_count,coord[j]):					##If you found the already counted NN, then empty the first element##
 					#print(nn,f)
@@ -764,5 +764,5 @@ subtracted_arraynn = np.subtract(array2,array1)
 subtracted_arraysecnn = np.subtract(array22,array11)
 subtracted_nn = list(subtracted_arraynn)
 subtracted_secnn = list(subtracted_arraysecnn)
-print(subtracted_nn) ##Coefficients of nearest neighbor parameters##
-print(subtracted_secnn) ##Coefficients of second nearest neighbor parameters##
+print(subtracted_nn)
+print(subtracted_secnn)

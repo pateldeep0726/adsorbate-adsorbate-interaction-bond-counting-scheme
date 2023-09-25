@@ -24,7 +24,7 @@ lattconst = 2.95217081000000
 #cryst = input("Enter the crystal type (100 or 111): ")
 cryst = "111"
 
-if cryst == "111": ##Patterns suggested by Frey et al. (2014): https://pubs.rsc.org/en/content/articlelanding/2014/cy/c4cy00763h##
+if cryst == "111": ##Patterns suggested by Schneider et al. (2014): https://pubs.rsc.org/en/content/articlelanding/2014/cy/c4cy00763h##
 	coord = pd.read_csv("/mnt/c/users/dmpatel/OneDrive - Iowa State University/desktop/research_data/General Script/Fermi_Development/config1.csv", sep = '  ', usecols = [0,1], names = ["x", "y"])
 	print(coord)
 	x = coord.x.to_list()
@@ -394,57 +394,7 @@ if cryst == "100": ## Patterns suggested by Reuter et al. (2007): 10.1103/PhysRe
 			coord_count.append(coord[i+8])
 
 	print("sigma_4nn =",sigma_4nn)
-
-	##Coefficients of correspinding 1-1-1 parameters##
-	sigma_111nn = 0
-	coord_count = []
-	for i in range(0,9*n-8,9):
-		coord_surr = []
-		for j in range(0,9*n-8,9):										
-			if 0 < round(((coord[i][0]-coord[j][0])**2 + (coord[i][1]-coord[j][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+1][0])**2 + (coord[i][1]-coord[j+1][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+2][0])**2 + (coord[i][1]-coord[j+2][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+3][0])**2 + (coord[i][1]-coord[j+3][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+4][0])**2 + (coord[i][1]-coord[j+4][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+5][0])**2 + (coord[i][1]-coord[j+5][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+6][0])**2 + (coord[i][1]-coord[j+6][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+7][0])**2 + (coord[i][1]-coord[j+7][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord[i][0]-coord[j+8][0])**2 + (coord[i][1]-coord[j+8][1])**2)**0.5,3) <= lattconst+0.008:		##The cut-off will change for each new metal##
-				if searchop(coord_count,coord[j]):					##If you found the already counted NN, then continue##
-					coord_surr.append(coord[j])
-					coord_surr.append(coord[j+1])
-					coord_surr.append(coord[j+2])
-					coord_surr.append(coord[j+3])
-					coord_surr.append(coord[j+4])
-					coord_surr.append(coord[j+5])
-					coord_surr.append(coord[j+6])
-					coord_surr.append(coord[j+7])
-					coord_surr.append(coord[j+8])
-
-		coord_surr_count = []
-		for k in range(0,len(coord_surr),9):
-			for l in range(0,len(coord_surr),9):									
-				if 0 < round(((coord_surr[k][0]-coord_surr[l][0])**2 + (coord_surr[k][1]-coord_surr[l][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+1][0])**2 + (coord_surr[k][1]-coord_surr[l+1][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+2][0])**2 + (coord_surr[k][1]-coord_surr[l+2][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+3][0])**2 + (coord_surr[k][1]-coord_surr[l+3][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+4][0])**2 + (coord_surr[k][1]-coord_surr[l+4][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+5][0])**2 + (coord_surr[k][1]-coord_surr[l+5][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+6][0])**2 + (coord_surr[k][1]-coord_surr[l+6][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+7][0])**2 + (coord_surr[k][1]-coord_surr[l+7][1])**2)**0.5,3) <= lattconst+0.008 or 0 < round(((coord_surr[k][0]-coord_surr[l+8][0])**2 + (coord_surr[k][1]-coord_surr[l+8][1])**2)**0.5,3) <= lattconst+0.008:		##The cut-off will change for each new metal##
-					if searchop(coord_surr_count,coord_surr[l]):
-						sigma_111nn = sigma_111nn + 1
-
-
-			if searchop(coord_surr_count,coord_surr[k]):					##If you found the already counted NN, then continue##
-				coord_surr_count.append(coord_surr[k])
-				coord_surr_count.append(coord_surr[k+1])
-				coord_surr_count.append(coord_surr[k+2])
-				coord_surr_count.append(coord_surr[k+3])
-				coord_surr_count.append(coord_surr[k+4])
-				coord_surr_count.append(coord_surr[k+5])
-				coord_surr_count.append(coord_surr[k+6])
-				coord_surr_count.append(coord_surr[k+7])
-				coord_surr_count.append(coord_surr[k+8])
-		
-
-		if searchop(coord_count,coord[i]):
-			coord_count.append(coord[i])
-			coord_count.append(coord[i+1])
-			coord_count.append(coord[i+2])
-			coord_count.append(coord[i+3])
-			coord_count.append(coord[i+4])
-			coord_count.append(coord[i+5])
-			coord_count.append(coord[i+6])
-			coord_count.append(coord[i+7])
-			coord_count.append(coord[i+8])
-
-	print("sigma_111nn =",sigma_111nn)
+	print(True and (True or False or False))
 
 	##Coefficients of correspinding 1-1-2 parameters##
 	sigma_112nn = 0
@@ -656,7 +606,7 @@ if cryst == "100": ## Patterns suggested by Reuter et al. (2007): 10.1103/PhysRe
 						coord_count.append(coord_surr[k])
 		elif count == 4:
 			if (searchop(coord_count,coord[i]) or searchop(coord_count,coord_surr[0]) or searchop(coord_count,coord_surr[9]) or searchop(coord_count,coord_surr[18]) or searchop(coord_count,coord_surr[27])) == True:
-				sigma_11122nn = sigma_11122nn + 2
+				sigma_11122nn = sigma_11122nn + 4
 				coord_count.append(coord[i])
 				coord_count.append(coord[i+1])
 				coord_count.append(coord[i+2])
